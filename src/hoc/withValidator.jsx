@@ -1,6 +1,6 @@
 import * as React from 'react'
-import type { ErrorBag } from 'vee-validate/src'
-import Validator from 'vee-validate'
+import type { ErrorBag } from '../validator/src'
+import Validator from '../validator/src'
 
 type State = {
   errors: ErrorBag,

@@ -26,6 +26,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "flow-bin": "^0.84.0"
+    "date-fns": "^1.29.0",
+    "flow-bin": "^0.84.0",
+    "validator": "^10.8.0"
   }
 }
