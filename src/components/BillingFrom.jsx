@@ -83,7 +83,7 @@ class BillingFrom extends React.Component<Props, State> {
           <div className="col-md-6 mb-3">
             <label htmlFor="lastName">Last name</label>
             <input type="text"
-                   className="form-control"
+                   className={`form-control ${errors.has('lastName') && 'is-invalid'}`}
                    id="lastName"
                    name="lastName"
                    placeholder=""
@@ -100,7 +100,7 @@ class BillingFrom extends React.Component<Props, State> {
               <span className="input-group-text">@</span>
             </div>
             <input type="text"
-                   className="form-control"
+                   className={`form-control ${errors.has('username') && 'is-invalid'}`}
                    id="username"
                    name="username"
                    placeholder="Username"
