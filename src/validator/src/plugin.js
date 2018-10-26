@@ -1,3 +1,4 @@
+// @flow
 import dictionary from './dictionary';
 import { assign, getPath, warn, isCallable } from './utils';
 import Validator from './core/validator';
@@ -22,7 +23,6 @@ const defaultConfig = {
   i18n: null,
   i18nRootKey: 'validation'
 };
-
 
 export let currentConfig = assign({}, defaultConfig);
 
@@ -98,7 +98,7 @@ class ReeValidate {
   }
 
   resolveConfig (ctx) {
-    const selfConfig = getPath('$options.$_veeValidate', ctx, {});
+    const selfConfig = getPath('$options.$_reeValidate', ctx, {});
 
     return assign({}, this.config, selfConfig);
   }
