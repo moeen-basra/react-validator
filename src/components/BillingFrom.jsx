@@ -58,11 +58,11 @@ class BillingFrom extends React.Component<Props, State> {
       .then(isValid => isValid && this.submit())
   }
 
-  submit() {
+  submit () {
     console.log(this.state)
   }
 
-  render() {
+  render () {
     const { errors } = this.props
 
     return <div className="col-md-8 order-md-1">
@@ -157,7 +157,7 @@ class BillingFrom extends React.Component<Props, State> {
                     name="country"
                     value={this.state.country || ''}
                     onChange={(e) => this.handleChange(e.target.name, e.target.value)}
-                    >
+            >
               <option value="">Choose...</option>
               <option>United States</option>
             </select>
@@ -172,7 +172,7 @@ class BillingFrom extends React.Component<Props, State> {
                     name="state"
                     value={this.state.state || ''}
                     onChange={(e) => this.handleChange(e.target.name, e.target.value)}
-                    >
+            >
               <option value="">Choose...</option>
               <option>California</option>
             </select>
@@ -189,7 +189,7 @@ class BillingFrom extends React.Component<Props, State> {
                    placeholder=""
                    value={this.state.zip || ''}
                    onChange={(e) => this.handleChange(e.target.name, e.target.value)}
-                   />
+            />
             <div className="invalid-feedback">
               Zip code required.
             </div>
@@ -230,7 +230,7 @@ class BillingFrom extends React.Component<Props, State> {
                    onChange={(e) => {
                      this.handleChange(e.target.name, 'cc')
                    }}
-                   />
+            />
             <label className="custom-control-label" htmlFor="credit">Credit card</label>
           </div>
           <div className="custom-control custom-radio">
@@ -240,7 +240,7 @@ class BillingFrom extends React.Component<Props, State> {
                    className="custom-control-input"
                    checked={this.state.paymentMethod === 'dc'}
                    onChange={(e) => this.handleChange(e.target.name, 'dc')}
-                   />
+            />
             <label className="custom-control-label" htmlFor="debit">Debit card</label>
           </div>
           <div className="custom-control custom-radio">
@@ -250,7 +250,7 @@ class BillingFrom extends React.Component<Props, State> {
                    className="custom-control-input"
                    checked={this.state.paymentMethod === 'paypal'}
                    onChange={(e) => this.handleChange(e.target.name, 'paypal')}
-                   />
+            />
             <label className="custom-control-label" htmlFor="paypal">PayPal</label>
           </div>
         </div>
@@ -264,7 +264,7 @@ class BillingFrom extends React.Component<Props, State> {
                    placeholder=""
                    value={this.state.ccName || ''}
                    onChange={(e) => this.handleChange(e.target.name, e.target.value)}
-                   />
+            />
             <small className="text-muted">Full name as displayed on card</small>
             <div className="invalid-feedback">
               Name on card is required
@@ -279,7 +279,7 @@ class BillingFrom extends React.Component<Props, State> {
                    placeholder=""
                    value={this.state.ccNumber || ''}
                    onChange={(e) => this.handleChange(e.target.name, e.target.value)}
-                   />
+            />
             <div className="invalid-feedback">
               Credit card number is required
             </div>
@@ -295,7 +295,7 @@ class BillingFrom extends React.Component<Props, State> {
                    placeholder=""
                    value={this.state.ccExpiry || ''}
                    onChange={(e) => this.handleChange(e.target.name, e.target.value)}
-                   />
+            />
             <div className="invalid-feedback">
               Expiration date required
             </div>
@@ -309,7 +309,7 @@ class BillingFrom extends React.Component<Props, State> {
                    placeholder=""
                    value={this.state.ccCode || ''}
                    onChange={(e) => this.handleChange(e.target.name, e.target.value)}
-                   />
+            />
             <div className="invalid-feedback">
               Security code required
             </div>

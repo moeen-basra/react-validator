@@ -1,6 +1,6 @@
 import * as React from 'react'
 import type { ErrorBag } from '../validator/src'
-import Validator from '../validator/src'
+import ReeValidator from '../validator/src'
 // import type { ErrorBag } from 'ree-validate'
 // import Validator from 'ree-validate'
 
@@ -17,7 +17,7 @@ type Field = {
 export default function withValidator<C: React.ComponentType<any>, F: Array<Field>>(Component: C, fields: F): React.ComponentType<C> {
   return class FormValidator extends React.Component<*, State> {
 
-    validator = new Validator.Validator()
+    validator = new ReeValidator.Validator()
 
     _isMounted = false
 
@@ -39,7 +39,7 @@ export default function withValidator<C: React.ComponentType<any>, F: Array<Fiel
       this._isMounted = false
     }
 
-    validateAll = async (data: any) => {
+    validateAll = async (data: any, options) => {
       const { errors } = this.validator
 
       for (let fieldName in data) {
@@ -50,7 +50,7 @@ export default function withValidator<C: React.ComponentType<any>, F: Array<Fiel
         }
       }
 
-      const isValid = await this.validator.validateAll(data)
+      const isValid = await this.validator.validateAll(data, options)
 
       if (!isValid && this._isMounted) {
         this.setState({ errors })
@@ -75,11 +75,11 @@ export default function withValidator<C: React.ComponentType<any>, F: Array<Fiel
       return isValid
     }
 
-    validate = (data: any, multi: boolean = true) => {
+    validate = (data: any, multi: boolean = true, scope?: string) => {
       if (multi) {
-        return this.validateAll(data)
+        return this.validateAll(data, { scope })
       }
-      return this.validateOne(data)
+      return this.validateOne(data, { scope })
     }
 
     clearErrors = (fieldName: ?string) => {
