@@ -52,7 +52,7 @@ export default function withValidator<C: React.ComponentType<any>, F: Array<Fiel
 
       const isValid = await this.validator.validateAll(data, options)
 
-      if (!isValid && this._isMounted) {
+      if (this._isMounted) {
         this.setState({ errors })
       }
 
@@ -68,7 +68,7 @@ export default function withValidator<C: React.ComponentType<any>, F: Array<Fiel
 
       const isValid = this.validator.validate(name, value)
 
-      if (!isValid && this._isMounted) {
+      if (this._isMounted) {
         this.setState({ errors })
       }
 
