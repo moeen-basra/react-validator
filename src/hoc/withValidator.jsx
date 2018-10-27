@@ -1,6 +1,8 @@
 import * as React from 'react'
 import type { ErrorBag } from '../validator/src'
 import Validator from '../validator/src'
+// import type { ErrorBag } from 'ree-validate'
+// import Validator from 'ree-validate'
 
 type State = {
   errors: ErrorBag,
